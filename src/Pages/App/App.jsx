@@ -3,8 +3,9 @@ import Home from '../Home'
 import MyAccount from '../MyAccount'
 import MyOrder from '../MyOrder'
 import MyOrders from '../MyOrders'
-import Signim from '../Signim'
+import Signin from '../Signin'
 import NotFound from '../NotFound'
+import Navbar from '../../Components/Navbar'
 
 import './App.css'
 
@@ -13,10 +14,10 @@ const AppRoutes = () => {
   let routes = useRoutes([
     // Define que cuando la URL sea '/', se renderizará el componente Home
     { path: '/', element: <Home/> },
-    { path: '/MyAccount', element: <MyAccount/> },
-    { path: '/MyOrder', element: <MyOrder/> },
-    { path: '/MyOrders', element: <MyOrders/> },
-    { path: '/Signim', element: <Signim/> },
+    { path: '/my-account', element: <MyAccount/> },
+    { path: '/my-order', element: <MyOrder/> },
+    { path: '/my-orders', element: <MyOrders/> },
+    { path: '/sign-in', element: <Signin/> },
     { path: '*', element: <NotFound/> },
   ])
 
@@ -31,6 +32,7 @@ const App =() => {
     esté habilitado y que las rutas definidas en AppRoutes funcionen correctamente.*/
     <BrowserRouter>
       <AppRoutes/>
+      <Navbar/>
     </BrowserRouter>
   )
 }
