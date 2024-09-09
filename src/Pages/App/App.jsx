@@ -1,4 +1,5 @@
 import { useRoutes, BrowserRouter } from 'react-router-dom'
+import { ShopingCartProvider } from '../../Context'
 import Home from '../Home'
 import MyAccount from '../MyAccount'
 import MyOrder from '../MyOrder'
@@ -30,10 +31,12 @@ const App =() => {
     // BrowserRoutes envuelve la aplicación y proporciona el contexto de enrutamiento
     /*Inserta el componente AppRoutes dentro de BrowserRouter. Esto asegura que el enrutamiento 
     esté habilitado y que las rutas definidas en AppRoutes funcionen correctamente.*/
-    <BrowserRouter>
+    <ShopingCartProvider>
+      <BrowserRouter>
       <AppRoutes/>
       <Navbar/>
-    </BrowserRouter>
+      </BrowserRouter>
+    </ShopingCartProvider>
   )
 }
 
