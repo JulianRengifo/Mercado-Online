@@ -1,6 +1,11 @@
+import { useContext } from "react";
+import { ShoppingCartContext } from "../../Context";
 
 //El componente recibe data como un argumento, que es un objeto que contiene los datos que se pasarán al componente
 const Card = (data) => {
+
+    const context = useContext(ShoppingCartContext)
+
     //destructuramos images, title y price
     const {images, title, price} = data.data;
     return (
@@ -11,7 +16,8 @@ const Card = (data) => {
                 {/*object-cover esta propiedad le dice al navegador que la imagen o el video debe cubrir completamente el contenedor en el que se encuentra*/}
                 {/*images[0] es la ruta de la imagen, que se obtiene dinámicamente desde el primer elemento ([0]) del array images dentro del objeto data.data*/}
                 <img className='w-full h-full object-cover rounded-lg' src={images[0]} alt={title}/>
-                <div className='absolute top-0 right-0 flex justify-center items-center bg-white w-6 h-6 rounded-full m-2 p-1'>
+                <div className='absolute top-0 right-0 flex justify-center items-center bg-white w-6 h-6 rounded-full m-2 p-1' 
+                onClick={() => context.setCount(context.count + 1)}> {/*context.setCount(context.count + 1) incrementa el valor de count en el contexto en 1.*/}
                     +
                 </div>
             </figure>

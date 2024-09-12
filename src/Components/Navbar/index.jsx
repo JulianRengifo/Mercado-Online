@@ -1,7 +1,11 @@
+import { useContext } from "react"
 import { NavLink } from "react-router-dom"
+import { ShoppingCartContext } from "../../Context"
 
 const Navbar = () => {
 
+     // Usar useContext para acceder al ShopingCartContext
+    const context = useContext(ShoppingCartContext)
     /*activeStyle es una cadena que define una clase de estilo que se aplicará a los enlaces (NavLink) que estén activos. 
     En este caso, los enlaces activos tendrán un subrayado con un desplazamiento (underline-offset-4*/
     const activeStyle = 'underline underline-offset-4'
@@ -113,8 +117,9 @@ const Navbar = () => {
                         Signin
                     </NavLink>
                 </li>
+                {/*Ingresa a context y le el valor que contiene count*/}
                 <li>
-                    icon
+                    🛒 {context.count}
                 </li>
             </ul>
         </nav>
