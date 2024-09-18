@@ -120,7 +120,7 @@ const Navbar = () => {
                 </li>
                 {/*Ingresa a context y le el valor que contiene count*/}
                 <li className='flex items-center'>
-                    <ShoppingBagIcon className='size-6 text-black'/>
+                    <ShoppingBagIcon className='h-6 w-6 text-black'/>
                     <div>{context.count}</div>
                 </li>
             </ul>

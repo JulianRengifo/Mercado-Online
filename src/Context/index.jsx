@@ -10,11 +10,30 @@ El parámetro children es lo que se pasa dentro del componente ShopingCartProvid
 export const ShoppingCartProvider = ({children}) => {
 
     const [count, setCount] = useState(0)
+    const [isProductDetailOpen, setIsProductDetailOpen] = useState(false);
+    
+    // Alternar entre abrir/cerrar ProductDetail
+
+    /*Si el estado actual isProductDetailOpen es false (los detalles del producto están cerrados),
+    al llamar a toggleProductDetail(), la función cambiará isProductDetailOpen a true (los detalles del producto se abrirán).*/
+    /*prevState: Es el valor actual del estado isProductDetailOpen. Si isProductDetailOpen es true, prevState será true, y si es false, prevState será false.
+    !prevState: El operador ! invierte el valor de prevState. Si prevState es true, entonces !prevState será false, y viceversa.
+    Por lo tanto, cada vez que se llama a setIsProductDetailOpen((prevState) => !prevState), el estado alternará entre true y false*/
+
+    /* const toggleProductDetail = () => {
+    setIsProductDetailOpen((prevState) => !prevState);
+    }; */
+
+    const openProductDetail = () => setIsProductDetailOpen(true)
+    const closeProductDetail = () => setIsProductDetailOpen(false)
 
     return (
         <ShoppingCartContext.Provider value={{
             count,
-            setCount
+            setCount,
+            isProductDetailOpen,
+            openProductDetail,
+            closeProductDetail
         }}>
             {children}
         </ShoppingCartContext.Provider>
