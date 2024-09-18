@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { ShoppingCartContext } from "../../Context";
+import { PlusIcon } from '@heroicons/react/24/solid'
 
 //El componente recibe data como un argumento, que es un objeto que contiene los datos que se pasarán al componente
 const Card = (data) => {
@@ -18,7 +19,7 @@ const Card = (data) => {
                 <img className='w-full h-full object-cover rounded-lg' src={images[0]} alt={title}/>
                 <div className='absolute top-0 right-0 flex justify-center items-center bg-white w-6 h-6 rounded-full m-2 p-1' 
                 onClick={() => context.setCount(context.count + 1)}> {/*context.setCount(context.count + 1) incrementa el valor de count en el contexto en 1.*/}
-                    +
+                    <PlusIcon className='size-6 text-black'/>
                 </div>
             </figure>
             <p className="flex justify-between">

@@ -1,3 +1,4 @@
+import { XCircleIcon } from '@heroicons/react/24/solid'
 import './styles.css'
 
 const ProductDetail = () => {
@@ -6,7 +7,7 @@ const ProductDetail = () => {
             <div className='flex justify-between items-center p-6'>
                 <h2 className='font-medium text-xl'>Detail</h2>
                 <div>
-                    X
+                <XCircleIcon className="size-6 text-black" />
                 </div>
             </div>
         </aside>
