@@ -7,11 +7,18 @@ const Card = (data) => {
 
     const context = useContext(ShoppingCartContext)
 
+    //Abre el detalle de un producto y establece qué producto en particular se debe mostrar
+    const showProduct = (productDetail) => {
+        context.openProductDetail()
+        context.setProductToShow(productDetail)
+    }
+
     //destructuramos images, title y price
+    //data.data es el objeto que contiene los detalles del producto, y se pasa a la función showProduct, la cual lo usa para abrir el detalle y establecer el producto a mostrar.
     const {images, title, price} = data.data;
     return (
         <div className='bg-white cursor-pointer w-56 h-60 rounded-lg'
-        onClick={() => context.openProductDetail()}>
+        onClick={() => showProduct(data.data)}>
             <figure className='relative mb-2 w-full h-4/5'>
                 <span className='absolute bottom-0 left-0 bg-white/60 rounded-lg text-black text-xs m-2 px-3 py-0.5'>{data.data.category.name}</span>
                 {/*La imgen tiene el mismo alto y ancho que su padre, */}

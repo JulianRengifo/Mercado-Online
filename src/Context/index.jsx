@@ -9,8 +9,8 @@ Los Providers son responsables de proporcionar el contexto a los componentes des
 El parámetro children es lo que se pasa dentro del componente ShopingCartProvider y representa los elementos hijos que tendrán acceso al contexto.*/
 export const ShoppingCartProvider = ({children}) => {
 
+    // Shopping Cart incrementar cantidad
     const [count, setCount] = useState(0)
-    const [isProductDetailOpen, setIsProductDetailOpen] = useState(false);
     
     // Alternar entre abrir/cerrar ProductDetail
 
@@ -23,9 +23,13 @@ export const ShoppingCartProvider = ({children}) => {
     /* const toggleProductDetail = () => {
     setIsProductDetailOpen((prevState) => !prevState);
     }; */
-
+    const [isProductDetailOpen, setIsProductDetailOpen] = useState(false);
     const openProductDetail = () => setIsProductDetailOpen(true)
     const closeProductDetail = () => setIsProductDetailOpen(false)
+
+    // Mostrar Product Detail
+    const [productToShow, setProductToShow] = useState({});
+
 
     return (
         <ShoppingCartContext.Provider value={{
@@ -33,7 +37,9 @@ export const ShoppingCartProvider = ({children}) => {
             setCount,
             isProductDetailOpen,
             openProductDetail,
-            closeProductDetail
+            closeProductDetail,
+            productToShow,
+            setProductToShow
         }}>
             {children}
         </ShoppingCartContext.Provider>
